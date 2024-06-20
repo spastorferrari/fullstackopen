@@ -1,0 +1,57 @@
+body{
+  background: rgb(27, 26, 28);
+}
+
+.img-captions{
+    text-align: center;
+    padding-right: 50px;
+    font-family: 'Schibsted Grotesk';
+    font-style: normal;
+    text-shadow: black;
+    color: gray;
+}
+
+.content_img
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p{ 
+    color:blueviolet;
+    padding-left: 60px;
+}
+
+h1, h2{
+    color:orangered;
+    padding-left: 120px;
+    border: 1px solid rgb(109, 130, 152);
+}
+
+h3{
+    color:crimson;
+    text-align: center;
+}
+
+h4{
+    color:cyan;
+    padding-left: 160px;
+}
+
+h5{
+    color: rgb(176, 136, 136);
+    align-items: center;
+}
+
+.form-labels{
+    padding-bottom: 5px;
+}
+.form-inputs{
+    color:rgb(27, 26, 28);
+}
+.button{
+    color:brown;
+    background-color: brown;
+    padding: 5px;
+}

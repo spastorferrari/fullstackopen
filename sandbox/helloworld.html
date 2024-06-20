@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+    <head>
+        <link href="styles/style.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Schibsted+Grotesk" rel="stylesheet"/>
+
+        <style>
+            body {
+  /* Center the form on the page */
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+  /* Form outline */
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+form li + li {
+  margin-top: 1em;
+}
+
+label {
+  /* Uniform size & alignment */
+  display: inline-block;
+  min-width: 90px;
+  text-align: right;
+}
+
+input,
+textarea {
+  /* To make sure that all text fields have the same font settings
+     By default, textareas have a monospace font */
+  font: 1em sans-serif;
+  /* Uniform text field size */
+  width: 300px;
+  box-sizing: border-box;
+  /* Match form field borders */
+  border: 1px solid #999;
+}
+
+input:focus,
+textarea:focus {
+  /* Additional highlight for focused elements */
+  border-color: #000;
+}
+
+textarea {
+  /* Align multiline text fields with their labels */
+  vertical-align: top;
+  /* Provide space to type some text */
+  height: 5em;
+}
+
+.button {
+  /* Align buttons with the text fields */
+  padding-left: 90px; /* same size as the label elements */
+}
+
+button {
+  /* This extra margin represent roughly the same space as the space
+     between the labels and their text fields */
+  margin-left: 0.5em;
+}
+
+        </style>
+    </head>
+    <body>
+        <p>Hello World!</p>
+        <p>My name is <b>Sebas</b>, user <b>spf3,OO0</b> </p>
+
+        <form action="/database", method="post">
+            <ul>
+                <label for="email" class="form-labels">Email </label> 
+                <br>
+                <input type="email" id="email" class="form-inputs" name="user_email">
+                <br>
+                <label for="favColor" class="form-labels">Favorite Color</label>
+                <br>
+                <input type="color" id="favColor" class="form-inputs" name="fav_color">
+                <li class="button">
+                    <button type="submit">Submit</button>
+                </li>
+            </ul>
+
+        </form>
+
+
+        <h2>USER ONLINE</h2>
+        <h3>summer 2,O024</h3>
+        <img src="images/reset_.png", height=400, class="content_img"/>
+        <p class="img-captions">greatReset<br>TUE JUN 18, 2,O024</b></p>
+
+        <img src="images/6.png", height=400, class="content_img"/>
+        <p class="img-captions">wembley<br>SAT JUN 01, 2024</b></p>
+
+        <img src="images/1.png", height=400, class="content_img"/>
+        <p class="img-captions"><b>caretaker OO001<br>FRI MAY 31, 2,O024</p>
+
+        <h4>footer stuff here</h4>
+        <h5>spf3OO0 2,O024</h5>
+    </body>
+</html>
