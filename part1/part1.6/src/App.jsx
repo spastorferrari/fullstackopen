@@ -1,84 +1,62 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
 
-const Button = ({handleClick, text}) => (
-  <button onClick={handleClick} class>
-    {text}
-  </button>
-)
+const Button = ({ handleClick, text }) => (
+    <button onClick={handleClick} className="randButton">
+        {text}
+    </button>
+);
 
-const StatisticsLine = (props) => {
-  return(
-    <tr>
-      <td>{props.text} {props.value}</td>
-    </tr>
-  )
-}
-
-const Statistics = (props) => {
-  const total = props.total
-  const good = props.good
-  const neutral = props.neutral
-  const bad = props.bad
-  const avgRatio = ((good - bad) / total).toFixed(2)
-  const positiveRatio = (good / total*100).toFixed(1)
-  const positiveRatiostr = (positiveRatio + "%")
-
-  if (total == 0){ 
-    return(
-      <div>
-        <p>No feedback provided.</p>
-      </div>
-    )
-  }
-  return (
-    <div>
-      <table>
-        <tbody>
-          <tr>
-            <th>Statistics</th>
-          </tr>
-          <StatisticsLine text="Total" value={total} />
-          <StatisticsLine text="Good" value={good} />
-          <StatisticsLine text="Neutral" value={neutral} />
-          <StatisticsLine text="Positive Ratio" value={positiveRatiostr} />
-          <StatisticsLine text="Index" value={avgRatio} />
-        </tbody>
-      </table>
-    </div>
-  )
-}
+const GetRandom = (max) => {
+    return Math.floor(Math.random() * max);
+};
 
 const App = () => {
-  const [good, setGood] = useState(0)
-  const [neutral, setNeutral] = useState(0)
-  const [bad, setBad] = useState(0)
-  const [total, setTotal] = useState(0)
+    const anecdotes = [
+        'If it hurts, do it more often.',
+        'Adding manpower to a late software project makes it later!',
+        'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
+        'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+        'Premature optimization is the root of all evil.',
+        'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
+        'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.',
+        'The only way to go fast, is to go well.'
+    ];
 
-  const handleGood = () => {
-      setGood(good + 1)
-      setTotal(total+1)
-  }
-  const handleNeutral = () => {
-    setNeutral(neutral + 1)
-    setTotal(total + 1)
-  }
-  const handleBad = () => {
-    setBad(bad + 1)
-    setTotal(total + 1)
-  }
-  const props = {total, good, neutral, bad};
+    const [selected, setSelected] = useState(0);
+    const [upvotes, setUpvotes] = useState({ 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0 });
 
-  return (
-    <div>
-      <h1>Feedback Engine</h1>
-      <Button handleClick={handleGood} text={"Good"}/>
-      <Button handleClick={handleNeutral} text={"Neutral"}/>
-      <Button handleClick={handleBad} text={"Bad"} />
-      <br></br>
-      <Statistics {...props}/>
-    </div>
-  )
-}
+    const handleButton = () => {
+        const rdIdx = GetRandom(anecdotes.length);
+        setSelected(rdIdx);
+    };
 
-export default App
+    const handleUpvote = () => {
+        setUpvotes(prevUpvotes => ({
+            ...prevUpvotes,
+            [selected]: prevUpvotes[selected] + 1
+        }));
+    };
+    
+    const getMax = () => {
+        const maxVotes = Math.max(...Object.values(upvotes));
+        const maxIndex = Object.keys(upvotes).reduce((a, b) => upvotes[a] > upvotes[b] ? a : b);
+        return { maxVotes, maxIndex };
+    };
+
+    const { maxVotes, maxIndex } = getMax();
+
+    return (
+        <div>
+            <h2>Anecdote of the day</h2>
+            <p>{anecdotes[selected]}</p>
+            <Button text="Upvote 🫵" handleClick={handleUpvote} />
+            <Button text="New Anecdote" handleClick={handleButton} />
+            <h5>Upvotes +{upvotes[selected]} </h5>
+            <h5>Top Anecdote has {maxVotes} votes:</h5>
+            <p>{anecdotes[maxIndex]}</p>
+
+        </div>
+    );
+};
+
+export default App;

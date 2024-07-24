@@ -35,24 +35,6 @@ h1 {
   line-height: 1.1;
 }
 
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -65,4 +47,29 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.randButton{
+  position: static;
+  margin-bottom: 10px;
+  margin-left: 25px;
+  color: rgb(0, 0, 0);
+  padding: 5px 15px;
+  font-size: 15px; 
+  font-family: Helvetica-bold;
+}
+
+p{
+  margin-bottom: 25px;
+  margin-left: 40px;
+  color:rgb(172, 172, 172)
+}
+
+h2{
+  margin-left: 50px;
+}
+
+h5{
+  margin-left: 30px;
+  font-size: 15px;
 }

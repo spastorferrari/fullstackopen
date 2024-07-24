@@ -20,3 +20,11 @@ button{
   padding: 5px 15px;
   font-size: 15px; 
 }
+
+.randButton{
+  margin-left: 5px;
+  margin-bottom: 100px;
+  color: rgb(0, 51, 255);
+  padding: 5px 15px;
+  font-size: 15px; 
+}
